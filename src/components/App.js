@@ -1,5 +1,12 @@
-import './scss/core/main.scss';
-import './scss/core/reset.scss';
+import '../styles/core/reset.scss';
+import '../styles/App.scss';
+import '../styles/layout/dummy.scss';
+import '../styles/layout/footer.scss';
+import '../styles/layout/form.scss';
+import '../styles/layout/header.scss';
+import '../styles/layout/instructions.scss';
+import '../styles/layout/letters.scss';
+import '../styles/layout/loading.scss';
 
 function App() {
   return (
