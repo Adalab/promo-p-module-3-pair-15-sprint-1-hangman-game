@@ -1,14 +1,15 @@
-import '../styles/core/reset.scss';
-import '../styles/App.scss';
-import '../styles/layout/dummy.scss';
-import '../styles/layout/footer.scss';
-import '../styles/layout/form.scss';
-import '../styles/layout/header.scss';
-import '../styles/layout/instructions.scss';
-import '../styles/layout/letters.scss';
-import '../styles/layout/loading.scss';
+import '../styles/main.scss';
+
+import { useState } from 'react';
 
 function App() {
+  let [numberOfErrors, setNumberOfErrors] = useState(0);
+
+  const handleClicBtn = (e) => {
+    e.preventDefault();
+    setNumberOfErrors(numberOfErrors + 1);
+  };
+
   return (
     <div className="page">
       <header>
@@ -54,8 +55,11 @@ function App() {
               id="last-letter"
             />
           </form>
+          <button className="form__input" onClick={handleClicBtn}>
+            Incrementar
+          </button>
         </section>
-        <section className="dummy error-5">
+        <section className={`dummy error-${numberOfErrors}`}>
           <span className="error-13 eye"></span>
           <span className="error-12 eye"></span>
           <span className="error-11 line"></span>
