@@ -10,6 +10,25 @@ function App() {
     setNumberOfErrors(numberOfErrors + 1);
   };
 
+const [lastLetter, setLastLetter] = useState("");
+
+const handleInput = (e) => {
+  const newValue= e.target.value;
+  setLastLetter(newValue);
+  console.log(newValue);
+  
+  let rexName = / ^ [a-zA-Z] + [a-zA-Z] + $ /;
+
+{newValue} === rexName ? 
+//{giftWrap === true ? "Sí" : "No"}
+
+//   if (newValue !== rexName) {
+//       return "error";
+//     } else if (newValue === rexName) {
+//       return ;
+// }
+
+
   return (
     <div className="page">
       <header>
@@ -53,6 +72,8 @@ function App() {
               type="text"
               name="last-letter"
               id="last-letter"
+              onChange={handleInput}
+              value={lastLetter}
             />
           </form>
           <button className="form__input" onClick={handleClicBtn}>
