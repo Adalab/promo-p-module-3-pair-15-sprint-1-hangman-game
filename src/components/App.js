@@ -8,6 +8,9 @@ function App() {
   const handleClicBtn = (e) => {
     e.preventDefault();
     setNumberOfErrors(numberOfErrors + 1);
+    // numberOfErrors === numberOfErrors + 1
+    //   ? setNumberOfErrors(0)
+    //   : setNumberOfErrors(numberOfErrors + 1);
   };
 
   return (
