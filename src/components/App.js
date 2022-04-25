@@ -4,33 +4,34 @@ import { useState } from 'react';
 
 function App() {
   let [numberOfErrors, setNumberOfErrors] = useState(0);
+  const [word, setWord] = useState('gatito');
+  const [userLetters, setUserLetters] = useState([]);
 
   const handleClicBtn = (e) => {
     e.preventDefault();
     setNumberOfErrors(numberOfErrors + 1);
-    // numberOfErrors === numberOfErrors + 1
-    //   ? setNumberOfErrors(0)
-    //   : setNumberOfErrors(numberOfErrors + 1);
   };
 
-const [lastLetter, setLastLetter] = useState("");
+  const [lastLetter, setLastLetter] = useState('');
 
-const handleInput = (e) => {
-  const newValue= e.target.value;
-  setLastLetter(newValue);
-  console.log(newValue);
-  
-  let rexName = / ^ [a-zA-Z] + [a-zA-Z] + $ /;
+  const handleInput = (e) => {
+    e.preventDefault();
+    const newValue = e.target.value;
 
-{newValue} === rexName ? 
-//{giftWrap === true ? "Sí" : "No"}
+    const rexName = /[a-zA-Z]/;
+    if (newValue === '' || rexName.test(newValue)) {
+      setLastLetter(newValue);
+      setLastLetter(userLetters);
+    }
+    console.log(userLetters);
+  };
 
-//   if (newValue !== rexName) {
-//       return "error";
-//     } else if (newValue === rexName) {
-//       return ;
-// }
-
+  const renderSolutionLetters = () => {
+    const wordLetters = word.split('');
+    return wordLetters.map((letter) => {
+      return <li class="letter"></li>;
+    });
+  };
 
   return (
     <div className="page">
@@ -41,6 +42,7 @@ const handleInput = (e) => {
         <section>
           <div className="solution">
             <h2 className="title">Solución:</h2>
+            <p className="letters">{renderSolutionLetters()}</p>
             <ul className="letters">
               <li className="letter">k</li>
               <li className="letter">a</li>
